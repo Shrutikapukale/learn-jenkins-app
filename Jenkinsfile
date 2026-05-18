@@ -1,6 +1,12 @@
 pipeline {
     agent any
+	// this is jenkin comments
 
+	/*
+	this is multi line comment
+	line1
+	line 2
+	*/
     stages {
         stage('Build') {
 			agent {
@@ -29,7 +35,7 @@ pipeline {
 			}
 			steps {
 				sh '''
-					test -f build/index.html
+					# test -f build/index.html #this is shell comment
 					npm test
 				'''
 			}

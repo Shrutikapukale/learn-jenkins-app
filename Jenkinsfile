@@ -1,12 +1,5 @@
 pipeline {
     agent any
-	// this is jenkin comments
-
-	/*
-	this is multi line comment
-	line1
-	line 2
-	*/
     stages {
         stage('Build') {
 			agent {
@@ -35,8 +28,25 @@ pipeline {
 			}
 			steps {
 				sh '''
-					# test -f build/index.html #this is shell comment
+					test -f build/index.html
 					npm test
+				'''
+			}
+		}
+		
+		stage('E2E Test') {
+			agent {
+				docker {
+					image 'node:18-alpine'
+					reuseNode true
+				}
+			}
+			steps {
+				sh '''
+                    npm install serve
+                    node_modules/.bin/serve -s build &
+                    sleep 10
+                    npx playwright test
 				'''
 			}
 		}

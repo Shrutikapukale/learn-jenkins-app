@@ -25,7 +25,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build -t myapp:${BUILD_NUMBER} .
+                echo "building docker image"
                 '''
             }
         }
@@ -33,9 +33,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-                helm upgrade --install ${APP_NAME} ./helm \
-                  -f helm/values-${ENV}.yaml \
-                  --namespace ${NAMESPACE}
+				  echo "Deploying in ${ENV} environment and ${NAMESPACE}
                 """
             }
         }

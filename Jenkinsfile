@@ -18,7 +18,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git ''https://github.com/Shrutikapukale/learn-jenkins-app.git'
+                git 'https://github.com/Shrutikapukale/learn-jenkins-app.git'
             }
         }
 

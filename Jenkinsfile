@@ -16,11 +16,11 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+       /* stage('Checkout') {
             steps {
                 git 'https://github.com/Shrutikapukale/learn-jenkins-app.git'
             }
-        }
+        }*/
 
         stage('Build Docker Image') {
             steps {

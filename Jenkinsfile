@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-				  echo "Deploying in ${ENV} environment and ${NAMESPACE}
+				  echo "Deploying in ${ENV} environment and ${NAMESPACE}"
                 """
             }
         }

@@ -1,34 +1,25 @@
 pipeline {
     agent any
 
-    parameters {
-        choice(
-            name: 'ENV',
-            choices: ['dev', 'stage', 'prod'],
-            description: 'Select Environment'
-        )
-    }
-
-    environment {
-        APP_NAME = "myapp"
-        NAMESPACE = "${params.ENV}"
-    }
-
     stages {
 
-        stage('Build Docker Image') {
+        stage('Checkout') {
             steps {
-                sh '''
-                echo "building docker image"
-                '''
+
+                git branch: 'main',
+                url: 'https://github.com/Shrutikapukale/learn-jenkins-app.git'
             }
         }
 
-        stage('Deploy') {
+        stage('Build') {
             steps {
-                sh """
-				  echo "Deploying in ${ENV} environment and ${NAMESPACE}"
-                """
+                sh 'echo Building Application'
+            }
+        }
+
+        stage('Deploy Dev') {
+            steps {
+                sh 'echo Deploying to Dev'
             }
         }
     }

@@ -19,7 +19,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                git 'https://github.com/Shrutikapukale/learn-jenkins-app.git'
+                url 'https://github.com/Shrutikapukale/learn-jenkins-app.git'
             }
         }
 

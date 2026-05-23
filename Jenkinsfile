@@ -14,7 +14,7 @@ pipeline {
         NAMESPACE = "${params.ENV}"
     }
 
-    stages {
+    /*stages {
 
         stage('Checkout') {
             steps {
@@ -29,7 +29,7 @@ pipeline {
                 '''
             }
         }
-
+        */
         stage('Deploy') {
             steps {
                 sh """

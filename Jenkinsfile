@@ -14,7 +14,7 @@ pipeline {
         NAMESPACE = "${params.ENV}"
     }
 
-    /*stages {
+    stages {
 
         stage('Build Docker Image') {
             steps {
@@ -23,7 +23,7 @@ pipeline {
                 '''
             }
         }
-        */
+
         stage('Deploy') {
             steps {
                 sh """

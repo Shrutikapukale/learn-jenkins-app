@@ -18,8 +18,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/Shrutikapukale/learn-jenkins-app.git'
+                checkout scm
             }
         }
 
